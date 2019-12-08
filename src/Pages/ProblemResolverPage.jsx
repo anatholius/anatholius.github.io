@@ -39,8 +39,9 @@ export default class ProblemResolverPage extends Component {
                 </NavRight>
             </Navbar>
             <Toolbar bottom>
-                <Link>Left Link</Link>
-                <Link>Right Link</Link>
+                <Link>The Left Link</Link>
+                <Link href="https://github.com/anatholius/problem-resolver" external target="_blank">See the code</Link>
+                <Link>The Right Link</Link>
             </Toolbar>
 
             <Block strong>

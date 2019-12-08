@@ -14,7 +14,7 @@ export default class ShellNavbar extends React.Component {
     }
 
     render() {
-        console.log(this.displayName, this.app);
+        // this.props.app.logger.log({app: this.app});
 
         return (
             <React.Fragment>

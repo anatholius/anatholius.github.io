@@ -88,7 +88,7 @@ export default class Invitation extends React.Component {
                     </ListItem>
                     <ListItem chevronCenter title="Sandbox" //disabled={true}
                               subtitle="The page with projects descriptions"
-                              text="available after logging in"
+                              text="available without logging in"
                               link="/sandbox/" noLinkClass
                     >
                         <Icon slot="media" icon="fad fa-presentation fa-2x"/>

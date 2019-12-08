@@ -95,7 +95,7 @@ export default class Shell extends React.Component {
 
         // console.log('this', this);
         // console.log('this.context', this.context);
-        console.log('appConfig', appConfig);
+        // console.log('appConfig', appConfig);
 
         this.state = {};
         this.deferredPrompt = null;
@@ -107,7 +107,7 @@ export default class Shell extends React.Component {
 
 
     componentDidMount = () => {
-        console.log(`${this.displayName} is mounting`, this);
+        // console.log(`${this.displayName} is mounting`, this);
         this.app = this.$f7;
 
         window.addEventListener('beforeinstallprompt', e => {
@@ -139,13 +139,13 @@ export default class Shell extends React.Component {
             handle: this.handle,
         });
 
-        this.app.logger.startProcess('init IndexedDB data');
+        // this.app.logger.startProcess('init IndexedDB data');
         this.app.api.init().then(() => {
             this._config.data = this.app.api.resource.data;
-            this.app.logger.info(this._config.data);
+            // this.app.logger.info(this._config.data);
             this.setState(this.state);
         });
-        this.app.logger.endProcess();
+        // this.app.logger.endProcess();
     };
 
     render() {

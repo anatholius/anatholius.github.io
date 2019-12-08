@@ -29,8 +29,6 @@ const WidgetPlugin = {
              * @constructor
              */
             SwipeableCollection: (type) => {
-                console.log('plugin widget SwipeableCollection');
-                const swipeableCollection = new SwipeableCollectionWidget.Builder(type).withApp(this);
                 return new SwipeableCollectionWidget.Builder(type).withApp(this);
             },
             /**
@@ -40,10 +38,7 @@ const WidgetPlugin = {
              * @constructor
              */
             SwipeableItem: (type) => {
-                console.log(`plugin widget SwipeableItem(${type})`);
-                const swipeableItem = new SwipeableItemWidget.Builder(type);
                 return new SwipeableItemWidget.Builder(type).withApp(this);
-                // return new SwipeableItemWidget.Builder(type).withApp(this);
             },
             // CollectionWidget: widgetFactory.createSwipeableCollectionWidget('card').prototypeInstance().collectionWidget,
         };

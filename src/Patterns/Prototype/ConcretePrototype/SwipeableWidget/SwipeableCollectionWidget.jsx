@@ -133,7 +133,7 @@ export default class SwipeableCollectionWidget {
     };
 
     constructor(build) {
-        console.log('build', build);
+        // console.log('build', build);
         this._type = build.type;
         this._app = build.app;
         this._formConfig = build.formConfig;
@@ -182,19 +182,19 @@ Sprawdź konfigurację '${this.__proto__.constructor.name}'`);
             }
 
             withConfig(config) {
-                console.log('which should set config');
+                // console.log('which should set config');
                 this.formConfig = config;
                 return this;
             }
 
             withHandlers(handlers) {
-                console.log('and should set handlers');
+                // console.log('and should set handlers');
                 this.handle = handlers;
                 return this;
             }
 
             withEvents(events) {
-                console.log('and should set events');
+                // console.log('and should set events');
                 this.event = events;
                 return this;
             }
@@ -205,16 +205,16 @@ Sprawdź konfigurację '${this.__proto__.constructor.name}'`);
              */
             buildWidget() {
                 const newCollectionWidget = new SwipeableCollectionWidget(this);
-                console.log('then should create SwipeableCollectionWidget');
+                // console.log('then should create SwipeableCollectionWidget');
                 // const clone = newCollectionWidget._clone();
                 // console.log('clone', clone);
-                console.log('and return it');
+                // console.log('and return it');
                 return newCollectionWidget.collectionWidget;
                 // return clone;
             }
         }
 
-        console.log('should return Builder');
+        // console.log('should return Builder');
 
         return Builder;
     }
@@ -222,7 +222,7 @@ Sprawdź konfigurację '${this.__proto__.constructor.name}'`);
     collectionWidget = (props) => {
         // console.log(`${this.__proto__.constructor.name}.collectionWidget:`, this);
         this.configureProps(props);
-        const actions = this.widget.actions;
+        // const actions = this.widget.actions;
         // console.warn(`Będziemy renderować collectionCardWidget( ${this.name} )`, this);
 
         let card = null;
@@ -307,7 +307,7 @@ Sprawdź konfigurację '${this.__proto__.constructor.name}'`);
         }
     };
     _renderList = (props) => {
-        return <div>dupa collection list widget dla '{this.props.field}' </div>;
+        return <div>collection list widget dla '{this.props.field}' </div>;
     };
 
     renderItem = (type, item, index) => {
@@ -333,7 +333,7 @@ Sprawdź konfigurację '${this.__proto__.constructor.name}'`);
         const formConfig = this._formConfig;
         const itemConfig = formConfig.item;
         const fieldConfig = formConfig.fields[fieldName];
-        const values = props.data.form;
+        // const values = props.data.form;
 
         // this._app.logger.log({
         //     'this._formConfig': this._formConfig,
