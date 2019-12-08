@@ -16,12 +16,10 @@ import {
 
 
 export default class ProblemResolverPage extends Component {
-    displayName = 'HomePage';
+    displayName = this.__proto__.constructor.name;
 
     constructor(props, context) {
         super(props, context);
-        console.log('HomePage.props', props);
-        console.log('context', context);
     }
 
     render() {

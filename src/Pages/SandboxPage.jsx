@@ -18,12 +18,10 @@ import {
 
 
 export default class SandboxPage extends Component {
-    displayName = 'HomePage';
+    displayName = this.__proto__.constructor.name;
 
     constructor(props, context) {
         super(props, context);
-        console.log('HomePage.props', props);
-        console.log('context', context);
     }
 
     render() {
@@ -33,7 +31,7 @@ export default class SandboxPage extends Component {
                     <Link slot="title" icon="fad fa-chevron-left" panelOpen="left"/>
                 </NavLeft>
                 <NavTitle>
-                    Piaskownica
+                    Sandbox
                     <span className="subtitle">Fun and checking components</span>
                 </NavTitle>
                 <NavRight>

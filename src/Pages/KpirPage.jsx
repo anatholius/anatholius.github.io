@@ -19,7 +19,7 @@ import {
 
 
 export default class KpirPage extends Component {
-    displayName = 'HomePage';
+    displayName = this.__proto__.constructor.name;
 
     constructor(props, context) {
         super(props, context);
