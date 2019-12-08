@@ -1,13 +1,12 @@
 import React from "react";
 import {BlockTitle, Icon, List, ListItem, Page, Panel, View} from "framework7-react";
-import * as PropTypes from "prop-types";
 
 export default class PanelLeft extends React.Component {
     displayName = 'PanelLeft';
-    static propTypes = {
-        display: PropTypes.func,
-        // event:   PropTypes.object,
-    };
+    // static propTypes = {
+    //     display: PropTypes.func,
+    //     // event:   PropTypes.object,
+    // };
     
     display = this.props.display(this.displayName);
     

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Page, Navbar, Block, BlockTitle, List, ListItem, Button, Col} from 'framework7-react';
+import {Block, BlockTitle, List, ListItem, Navbar, Page} from 'framework7-react';
 
 export default () => (
     <Page>

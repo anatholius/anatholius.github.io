@@ -56,7 +56,7 @@ export default class SwipeableItemWidget {
 
 
     constructor(build) {
-        console.log('build', build);
+        // console.log('build', build);
         this._type = build.type;
         this._itemConfig = build.itemConfig;
         this._app = build.app;
@@ -70,25 +70,25 @@ export default class SwipeableItemWidget {
             }
 
             withApp(app) {
-                console.log('which should set app object');
+                // console.log('which should set app object');
                 this.app = app;
                 return this;
             }
 
             withConfig(config) {
-                console.log('which should set config');
+                // console.log('which should set config');
                 this.itemConfig = config;
                 return this;
             }
 
             withHandlers(handlers) {
-                console.log('and should set handlers');
+                // console.log('and should set handlers');
                 this.handle = handlers;
                 return this;
             }
 
             withEvents(events) {
-                console.log('and should set events');
+                // console.log('and should set events');
                 this.event = events;
                 return this;
             }
@@ -99,10 +99,10 @@ export default class SwipeableItemWidget {
              */
             buildItem() {
                 const newItemWidget = new SwipeableItemWidget(this);
-                console.log('then should create SwipeableItemWidget');
+                // console.log('then should create SwipeableItemWidget');
                 // const clone = newCollectionWidget._clone();
                 // console.log('clone', clone);
-                console.log('and return it', newItemWidget);
+                // console.log('and return it', newItemWidget);
                 return newItemWidget;//.itemWidget();
                 // return clone;
             }

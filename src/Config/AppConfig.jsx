@@ -97,8 +97,8 @@ export default class AppConfig {
         route.options = Object.assign(route.options, {...options});
 
         route.async = (routeTo, routeFrom, resolve, reject) => {
-            console.log('routeFrom', routeFrom);
-            console.log('routeTo', routeTo);
+            // console.log('routeFrom', routeFrom);
+            // console.log('routeTo', routeTo);
 
             config.component.contextType = React.createContext(options.context);
 

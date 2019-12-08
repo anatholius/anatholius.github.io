@@ -17,20 +17,18 @@ export default class HomePage extends React.Component {
         this.app = $f7;
 
         this.state = {};
-        console.log(`${this.displayName} is constructing`);
+        // console.log(`${this.displayName} is constructing`);
 
     }
 
     componentDidMount() {
         //     console.log(`${this.displayName} is mounting`);
-        this.app.logger.startProcess('init IndexedDB data');
-        this.app.api.init().then(() => {
-            // this.context.data = this.app.api.resource.data;
-            this.setState(this.state)
-        });
-        this.app.logger.endProcess();
-
-
+        // this.app.logger.startProcess('init IndexedDB data');
+        // this.app.api.init().then(() => {
+        //     // this.context.data = this.app.api.resource.data;
+        //     this.setState(this.state)
+        // });
+        // this.app.logger.endProcess();
     }
 
     render() {

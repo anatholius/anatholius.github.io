@@ -19,7 +19,7 @@ export default class PanelRight extends React.Component {
 
     render() {
         this.display = this.props.display(this.displayName);
-        console.log('this.props', this.props);
+        // console.log('this.props', this.props);
         // eslint-disable-next-line no-unused-vars
         let companySelected = null;
         if (this.props.data.current.company) {
@@ -47,10 +47,10 @@ export default class PanelRight extends React.Component {
                 <Panel right cover themeLight>
                     <View>
                         <Page>
-                            <Navbar title="Operacje" subtitle="Operacje na księdze">
+                            <Navbar title="Operations" subtitle="Useful actions or nothing">
                                 {!this.props.state.online &&
-                                <Link slot="nav-right" color="red">
-                                    <Icon icon={`fad fa-wifi-slash`}/>
+                                <Link slot="nav-right" color={this.props.app.online ? 'black' : 'red'}>
+                                    <Icon icon={`fad fa-wifi${this.props.app.online ? '' : '-slash'}`}/>
                                 </Link>}
                             </Navbar>
                             <List>
@@ -62,12 +62,14 @@ export default class PanelRight extends React.Component {
                                         }}/>
                                     )}
 
-                                    <ListItem divider title="Divider Here"/>
 
                                     {this.props.display('buttonLogout') &&
-                                    <ListItem link="#" title="Wyloguj" onClick={this.props.app.event.logout}>
-                                        <Icon slot="media" icon="fad fa-sign-out"/>
-                                    </ListItem>
+                                    <React.Fraqgment>
+                                        <ListItem divider title="Divider Here"/>
+                                        <ListItem link="#" title="Wyloguj" onClick={this.props.app.event.logout}>
+                                            <Icon slot="media" icon="fad fa-sign-out"/>
+                                        </ListItem>
+                                    </React.Fraqgment>
                                     }
                                 </ListGroup>
                             </List>

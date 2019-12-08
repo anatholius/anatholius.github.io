@@ -182,7 +182,6 @@ export default class Log {
     static endProcess = () => {
         Log.state = 'standby';
         console.groupEnd();
-        console.info('PROCESS ENDED');
     };
 
     static intention() {
