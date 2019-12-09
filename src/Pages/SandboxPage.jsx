@@ -1,19 +1,26 @@
 import React, {Component} from 'react';
 import {
     Block,
+    BlockFooter,
     BlockTitle,
     Button,
     Col,
     Link,
     List,
+    ListButton,
+    ListInput,
     ListItem,
+    LoginScreen,
+    LoginScreenTitle,
     Navbar,
     NavLeft,
     NavRight,
     NavTitle,
     Page,
+    Popup,
     Row,
     Toolbar,
+    View,
 } from 'framework7-react';
 
 
@@ -74,6 +81,52 @@ export default class SandboxPage extends Component {
                 <ListItem link="/dynamic-route/blog/45/post/125/?foo=bar#about" title="Dynamic Route"/>
                 <ListItem link="/load-something-that-doesnt-exist/" title="Default Route (404)"/>
             </List>
+
+
+            {/* Popup */}
+            <Popup id="popup">
+                <View>
+                    <Page>
+                        <Navbar title="Popup">
+                            <NavRight>
+                                <Link popupClose>Close</Link>
+                            </NavRight>
+                        </Navbar>
+                        <Block>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, architecto. Cupiditate
+                            laudantium rem nesciunt numquam, ipsam. Voluptates omnis, a inventore atque ratione aliquam.
+                            Omnis iusto nemo quos ullam obcaecati, quod.</Block>
+                    </Page>
+                </View>
+            </Popup>
+
+            {/* Login Screen */}
+            <LoginScreen id="login-screen">
+                <View>
+                    <Page loginScreen>
+                        <LoginScreenTitle>Login</LoginScreenTitle>
+                        <List form>
+                            <ListInput
+                                label="Username"
+                                name="username"
+                                placeholder="Username"
+                                type="text"
+                            />
+                            <ListInput
+                                label="Password"
+                                name="password"
+                                type="password"
+                                placeholder="Password"
+                            />
+                        </List>
+                        <List>
+                            <ListButton title="Sign In" loginScreenClose></ListButton>
+                            <BlockFooter>
+                                <p>Click Sign In to close Login Screen</p>
+                            </BlockFooter>
+                        </List>
+                    </Page>
+                </View>
+            </LoginScreen>
         </Page>;
     }
 }

@@ -15,53 +15,7 @@ export default class Invitation extends React.Component {
         this.app = this.$f7;
     }
 
-    /*
-    componentDidMount() {
-        this._isMounted = true;
-        this._isMounted && self.addEventListener("online", () => {
-            this.setState({
-                online: true,
-            })
-        });
-        this._isMounted && self.addEventListener("offline", () => {
-            this.setState({
-                online: false,
-            })
-        });
-    }
-    
-    componentWillUnmount() {
-        this._isMounted = false;
-    }
-    
-    componentDidUpdate() {
-        if (this.api.resource.db) {
-            this.api.resource.getConfig('owner').then(owner => {
-                if (this._isMounted) {
-                    // logger.groupInfo(this.displayName, 'componentDidUpdate', {
-                    //     owner: owner,
-                    // });
-                    if (!this.state.owner && owner || this.state.owner && !owner) {
-                        this.setState(prevState => {
-                            const newState = {...prevState};
-                            newState.owner = owner;
-                            logger.setState(newState, this.displayName, 'componentDidUpdate');
-                            return newState;
-                        });
-                    }
-                }
-            }).then(success => {
-                console.log('Invitation update success');
-            });
-        }
-    }
-    //*/
-
     render() {
-        // logger.groupInfo(this.displayName, 'render', {
-        //     'this.state':       this.state,
-        //     'this.props.state': this.props.state,
-        // });
         return (
             <Block noHairlines>
                 <BlockHeader>
@@ -72,6 +26,13 @@ export default class Invitation extends React.Component {
                 </BlockHeader>
 
                 <List mediaList className="media-center">
+                    <ListItem chevronCenter title="Code Samples" //disabled={true}
+                              subtitle="Descriptions and links to sample code repositories"
+                              text="available without logging in"
+                              link="/code-samples/" noLinkClass
+                    >
+                        <Icon slot="media" icon="fad fa-code fa-2x"/>
+                    </ListItem>
                     <ListItem chevronCenter title="Problem Resolver Project"
                               subtitle="Application project supporting problem solving"
                               text="available without logging in"

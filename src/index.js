@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './scss/app.scss';
 import './scss/layout.scss';
 import 'framework7/css/framework7.bundle.min.css';
 // Import F7 Bundle
@@ -7,7 +8,6 @@ import Framework7 from 'framework7/framework7.esm.bundle';
 // Import F7-React Plugin
 import Framework7React from 'framework7-react';
 import Shell from './Shell';
-
 // Import KPIR Plugins
 import HelperPlugin from "./Plugin/HelperPlugin";
 import LoggerPlugin from "./Plugin/LoggerPlugin";

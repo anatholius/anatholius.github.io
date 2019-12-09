@@ -11,6 +11,8 @@ import DynamicRoutePage from "./Pages/DynamicRoutePage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import ProblemResolverPage from "./Pages/ProblemResolverPage";
 import SandboxPage from "./Pages/SandboxPage";
+import CodeSamplesPage from "./Pages/CodeSamplesPage";
+import CodeSamplesDetailPage from "./Pages/CodeSamplesDetailPage";
 
 const resourceConfig = new ResourceConfig();
 
@@ -42,6 +44,34 @@ export default class Shell extends React.Component {
         //     transition: 'f7-cover-v',
         //     context: appConfig,
         // });
+
+        /*
+        const codeSampleRoute = appConfig.createSimpleRoute(
+            'codeSample',
+            '/code-samples/:pattern/',
+            CodeSamplesDetailPage,
+        );
+        console.log('codeSampleRoute', codeSampleRoute);
+
+        appConfig.addDetailsRoute('codeSamples', '/code-samples/', [
+            codeSampleRoute,
+        ], {
+            component: CodeSamplesPage,
+            master: true,
+            transition: 'f7-cover-v',
+            context: appConfig,
+        });
+        /*/
+        appConfig.addRoute('codeSamples', '/code-samples/', CodeSamplesPage, {
+            // transition: 'f7-cover-v',
+            master: true,
+            context: appConfig,
+        });
+        appConfig.addRoute('codeSample', '/code-samples/:pattern', CodeSamplesDetailPage, {
+            // transition: 'f7-cover-v',
+            context: appConfig,
+        });
+        //*/
         appConfig.addAsyncRoute('sandbox', '/sandbox/', {
             component: SandboxPage,
         }, {
@@ -91,24 +121,18 @@ export default class Shell extends React.Component {
             // context:    appConfig,
         });
         this._config = appConfig;
-
-
-        // console.log('this', this);
-        // console.log('this.context', this.context);
-        // console.log('appConfig', appConfig);
+        console.log('specific route', appConfig.routes[2]);
 
         this.state = {};
         this.deferredPrompt = null;
 
-        // this.$f7.api.init().then(() => {
-        //     console.log('api',this.app.api.resource);
-        // });
     }
 
 
     componentDidMount = () => {
         // console.log(`${this.displayName} is mounting`, this);
         this.app = this.$f7;
+        this.app.logger.log({'this._config': this._config});
 
         window.addEventListener('beforeinstallprompt', e => {
             // Stash the event so it can be triggered later.
@@ -151,7 +175,7 @@ export default class Shell extends React.Component {
     render() {
         return (
             <App params={this._config}>
-                <View main url="/" pushState/>
+                <View main url="/" pushState masterDetailBreakpoint={800}/>
             </App>
         );
     }

@@ -7,7 +7,22 @@ export default class AppConfig {
     name = 'Anatholius Programowanie - biuro';
     id = 'pl.anatholius.biuro';
     data = {};
+
+    masterDetailBreakpoint = 800;
     routes = [];
+
+    popup = {
+        closeOnEscape: true,
+    };
+    sheet = {
+        closeOnEscape: true,
+    };
+    popover = {
+        closeOnEscape: true,
+    };
+    actions = {
+        closeOnEscape: true,
+    };
     on = {
         init: (app) => {
             console.log('F7 init');
@@ -30,10 +45,27 @@ export default class AppConfig {
      * @param options - opcje trasy
      */
     addRoute = (name, path, ReactComponent, options) => {
+        const route = this.createSimpleRoute(name, path, ReactComponent, options);
+        this.routes.push(route);
+    };
+    /**
+     * Tworzy i zwraca konfigurację routa z komponentem
+     *
+     * @param name - nazwa trasy
+     * @param path - ścieżka trasy
+     * @param ReactComponent - nazwa komponentu strony
+     * @param options - opcje trasy
+     */
+    createSimpleRoute = (name, path, ReactComponent, options) => {
+        options = options ? options : {};
         const route = new RouteConfig(name, path);
         route.component = ReactComponent;
-        route.options = Object.assign(route.options, {...options});
-        this.routes.push(route);
+        for (let key in options) {
+            if (options.hasOwnProperty(key) && options[key]) {
+                route[key] = options[key];
+            }
+        }
+        return route;
     };
 
     /**
@@ -62,19 +94,30 @@ export default class AppConfig {
      *
      * @param name - nazwa trasy
      * @param path - ścieżka trasy
-     * @param {Array} tabsConfig - nazwa komponentu strony
+     * @param {Array} detailRoutes - tablica routów z detalami
      * @param options - opcje trasy
      */
     addDetailsRoute = (name, path, detailRoutes, options) => {
         const tabs = [];
-        for (let tab of detailRoutes) {
-            const tabRoute = new RouteConfig(name, path);
-            tabRoute.component = tab.component;
-            tabs.push(tabRoute);
+        for (let routeDetail of detailRoutes) {
+            console.log(routeDetail, routeDetail instanceof RouteConfig, typeof routeDetail);
+            console.log('Natomiast routeDetail to:', routeDetail);
+            if (routeDetail instanceof RouteConfig) {
+                tabs.push(routeDetail);
+            } else {
+                const detailRoute = new RouteConfig(name, path);
+                detailRoute.component = routeDetail.component;
+                tabs.push(detailRoute);
+            }
         }
         const route = new RouteConfig(name, path);
-        route.tabs = tabs;
-        route.options = Object.assign(route.options, {...options});
+        route.detailRoutes = tabs;
+        for (let key in options) {
+            if (options.hasOwnProperty(key) && options[key]) {
+                route[key] = options[key];
+            }
+        }
+        console.log('this route to', route);
         this.routes.push(route);
     };
 

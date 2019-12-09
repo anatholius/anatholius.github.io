@@ -95,7 +95,13 @@ export default class RouteConfig {
     }
 
     getConfig() {
-        return {...this};
+        const config = {};
+        for (let key in this) {
+            if (this.hasOwnProperty(key) && this[key]) {
+                config[key] = this[key];
+            }
+        }
+        return config;
     }
 
 }

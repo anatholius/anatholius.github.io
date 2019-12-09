@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {BlockHeader, BlockTitle, Page, PageContent} from 'framework7-react';
+import {Block, BlockHeader, BlockTitle, Link, Navbar, NavRight, Page, PageContent, Popup} from 'framework7-react';
 import PanelLeft from "../Components/Shell/PanelLeft";
 import PanelRight from "../Components/Shell/PanelRight";
 import Invitation from "../Components/Shell/Invitation";
@@ -13,8 +13,7 @@ export default class HomePage extends React.Component {
     constructor(props, context) {
         super(props, context);
 
-        const {$f7} = this;
-        this.app = $f7;
+        this.app = this.$f7;
 
         this.state = {};
         // console.log(`${this.displayName} is constructing`);
@@ -41,8 +40,6 @@ export default class HomePage extends React.Component {
         ;
         return <Page>
             <ShellNavbar data={this.context.data} state={this.state} app={this.app}/>
-
-
             {this.app.displayable('panelLeft') && (
                 <PanelLeft/>
             )}
