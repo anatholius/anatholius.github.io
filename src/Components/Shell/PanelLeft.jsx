@@ -7,38 +7,34 @@ export default class PanelLeft extends React.Component {
     //     display: PropTypes.func,
     //     // event:   PropTypes.object,
     // };
-    
-    display = this.props.display(this.displayName);
-    
+
     render() {
-        this.display = this.props.display(this.displayName);
-        
         return (
             <React.Fragment>
-                {this.display && <Panel left cover themeDark>
+                <Panel left cover themeDark>
                     <View>
                         <Page>
                             <BlockTitle>Navigacja OFF-LINE</BlockTitle>
                             <List>
-                                <ListItem link="#" title="Jakiś link1">
-                                    <Icon slot="media" icon="fad fa-sign-out"></Icon>
+                                <ListItem link="#" title="Some link1">
+                                    <Icon slot="media" icon="fad fa-sign-out"/>
                                 </ListItem>
-                                <ListItem link="#" title="Jakiś link2">
-                                    <Icon slot="media" icon="fad fa-sign-out"></Icon>
+                                <ListItem link="#" title="Some link2">
+                                    <Icon slot="media" icon="fad fa-sign-out"/>
                                 </ListItem>
-                                <ListItem link="#" title="Jakiś lin2k">
-                                    <Icon slot="media" icon="fad fa-sign-out"></Icon>
+                                <ListItem link="#" title="Some lin2k">
+                                    <Icon slot="media" icon="fad fa-sign-out"/>
                                 </ListItem>
-                                
-                                <ListItem divider title="Divider Here"></ListItem>
-                                
-                                <ListItem link="#" title="Jakiś link">
-                                    <Icon slot="media" icon="fad fa-sign-out"></Icon>
+
+                                <ListItem divider title="Divider Here"/>
+
+                                <ListItem link="#" title="Some link">
+                                    <Icon slot="media" icon="fad fa-sign-out"/>
                                 </ListItem>
                             </List>
                         </Page>
                     </View>
-                </Panel>}
+                </Panel>
             </React.Fragment>
         );
     }

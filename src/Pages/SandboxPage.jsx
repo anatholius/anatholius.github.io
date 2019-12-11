@@ -22,20 +22,20 @@ import {
     Toolbar,
     View,
 } from 'framework7-react';
+import PanelLeft from "../Components/Shell/PanelLeft";
+import PanelRight from "../Components/Shell/PanelRight";
 
 
 export default class SandboxPage extends Component {
     displayName = this.__proto__.constructor.name;
 
-    constructor(props, context) {
-        super(props, context);
-    }
-
     render() {
+        console.log(this);
+
         return <Page>
             <Navbar>
                 <NavLeft>
-                    <Link slot="title" icon="fad fa-chevron-left" panelOpen="left"/>
+                    <Link slot="title" icon="fad fa-chevron-left" back/>
                 </NavLeft>
                 <NavTitle>
                     Sandbox
@@ -45,6 +45,14 @@ export default class SandboxPage extends Component {
                     <Link color="black" icon="fad fa-arrow-to-left" panelOpen="right"/>
                 </NavRight>
             </Navbar>
+
+            <PanelLeft/>
+
+            <PanelRight display={this.$f7.displayable} data={this.$f7.api.resource.data} state={this.state}
+                        config={this.context.config}
+                        app={this.$f7}
+            />
+
             <Toolbar bottom>
                 <Link>Left Link</Link>
                 <Link>Right Link</Link>

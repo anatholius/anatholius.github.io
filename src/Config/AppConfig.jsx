@@ -39,55 +39,85 @@ export default class AppConfig {
     /**
      * Tworzy i dodaje konfigurację routa z komponentem
      *
-     * @param name - nazwa trasy
-     * @param path - ścieżka trasy
-     * @param ReactComponent - nazwa komponentu strony
-     * @param options - opcje trasy
+     * @param {string} name - nazwa trasy
+     * @param {string} path - ścieżka trasy
+     * @param {Object} config - nazwa komponentu strony
+     * @param {Object} [options] - opcje trasy
      */
-    addRoute = (name, path, ReactComponent, options) => {
-        const route = this.createSimpleRoute(name, path, ReactComponent, options);
+    addRoute = (name, path, config, options) => {
+        const route = this.createSimpleRoute(name, path, config, options);
         this.routes.push(route);
     };
     /**
      * Tworzy i zwraca konfigurację routa z komponentem
      *
-     * @param name - nazwa trasy
-     * @param path - ścieżka trasy
-     * @param ReactComponent - nazwa komponentu strony
-     * @param options - opcje trasy
+     * @param {string} name - nazwa trasy
+     * @param {string} path - ścieżka trasy
+     * @param {Object} config - nazwa komponentu strony
+     * @param {Object} [options] - opcje trasy
      */
-    createSimpleRoute = (name, path, ReactComponent, options) => {
-        options = options ? options : {};
-        const route = new RouteConfig(name, path);
-        route.component = ReactComponent;
-        for (let key in options) {
-            if (options.hasOwnProperty(key) && options[key]) {
-                route[key] = options[key];
+    createSimpleRoute = (name, path, config, options) => {
+        let route = new RouteConfig(name, path);
+
+        config.options = options;
+        for (let key in config) {
+            if (config.hasOwnProperty(key) && config[key]) {
+                if (key === 'options') {
+                    route[key] = Object.assign(route[key], config[key]);
+                } else {
+                    route[key] = config[key];
+                }
             }
         }
+        route.options = Object.assign(route.options, {...options});
+
         return route;
     };
 
     /**
      * Tworzy i dodaje konfigurację trasy kart
      *
-     * @param name - nazwa trasy
-     * @param path - ścieżka trasy
-     * @param {Array} tabsConfig - nazwa komponentu strony
-     * @param options - opcje trasy
+     * @param {string} name - nazwa trasy
+     * @param {string} path - ścieżka trasy
+     * @param {Array} tabs - nazwa komponentu strony
+     * @param {Object} config - nazwa komponentu strony
+     * @param {Object} [options] - opcje trasy
      */
-    addTabsRoute = (name, path, tabsConfig, options) => {
-        const tabs = [];
-        for (let tab of tabsConfig) {
-            const tabRoute = new RouteConfig(name, path);
-            tabRoute.component = tab.component;
-            tabs.push(tabRoute);
+    addTabsRoute = (name, path, tabs, config, options) => {
+        let route = new RouteConfig(name, path);
+
+        const tabsArray = [];
+        for (let tabRoute of tabs) {
+            if (tabRoute instanceof RouteConfig) {
+                console.log('tabRoute', tabRoute);
+                tabsArray.push(tabRoute.getConfig());
+            } else {
+                const newTabRoute = new RouteConfig(tabRoute.name, tabRoute.path);
+                for (let key in tabRoute) {
+                    if (tabRoute.hasOwnProperty(key) && tabRoute[key]) {
+                        if (key === 'options') {
+                            newTabRoute[key] = Object.assign(newTabRoute[key], tabRoute[key]);
+                        } else {
+                            newTabRoute[key] = tabRoute[key];
+                        }
+                    }
+                }
+                tabsArray.push(newTabRoute.getConfig());
+            }
         }
-        const route = new RouteConfig(name, path);
-        route.tabs = tabs;
+        route.tabs = tabsArray;
+
+        for (let key in config) {
+            if (config.hasOwnProperty(key) && config[key]) {
+                route[key] = config[key];
+            }
+        }
+
         route.options = Object.assign(route.options, {...options});
-        this.routes.push(route);
+
+        this.routes.push(route.getConfig());
     };
+
 
     /**
      * Tworzy i dodaje konfigurację trasy złożonej z podrzędnych subtras
@@ -98,10 +128,10 @@ export default class AppConfig {
      * @param options - opcje trasy
      */
     addDetailsRoute = (name, path, detailRoutes, options) => {
+        let route = new RouteConfig(name, path);
+
         const tabs = [];
         for (let routeDetail of detailRoutes) {
-            console.log(routeDetail, routeDetail instanceof RouteConfig, typeof routeDetail);
-            console.log('Natomiast routeDetail to:', routeDetail);
             if (routeDetail instanceof RouteConfig) {
                 tabs.push(routeDetail);
             } else {
@@ -110,14 +140,9 @@ export default class AppConfig {
                 tabs.push(detailRoute);
             }
         }
-        const route = new RouteConfig(name, path);
         route.detailRoutes = tabs;
-        for (let key in options) {
-            if (options.hasOwnProperty(key) && options[key]) {
-                route[key] = options[key];
-            }
-        }
-        console.log('this route to', route);
+        route.options = Object.assign(route.options, {...options});
+
         this.routes.push(route);
     };
 
@@ -130,26 +155,35 @@ export default class AppConfig {
      * @param options - opcje trasy
      */
     addAsyncRoute = (name, path, config, options) => {
-        const route = new RouteConfig(name, path);
-        // console.log('config', config);
-        // console.log('options', options);
+        let route = this.createAsyncRoute(name, path, config, options);
+        this.routes.push(route);
+    };
 
-        options.props = {
-            type: config.type,
-        };
-        route.options = Object.assign(route.options, {...options});
+    createAsyncRoute(name, path, config, options) {
+        let route = new RouteConfig(name, path);
 
-        route.async = (routeTo, routeFrom, resolve, reject) => {
-            // console.log('routeFrom', routeFrom);
-            // console.log('routeTo', routeTo);
+        if (!options.props) {
+            options.props = {};
+        }
+        if (config.type) {
+            options = Object.assign(options, {
+                type: config.type,
+            });
+        }
+        route.options = Object.assign(route.options, options);
+        route.async = this._getAsync(config, options);
 
+        return route;
+    }
+
+    _getAsync(config, options) {
+        return (routeTo, routeFrom, resolve, reject) => {
             config.component.contextType = React.createContext(options.context);
 
             const configResolve = {
                 config: {},
                 options: options,
             };
-
             if (!config.hasOwnProperty('type')) {
                 configResolve.config.component = config.component;
             } else {
@@ -157,13 +191,11 @@ export default class AppConfig {
                     component: config.component,
                 };
             }
-
             configResolve.options.props = routeTo.params;
 
             resolve(configResolve.config, configResolve.options);
         };
-        this.routes.push(route);
-    };
+    }
 
     getConfig() {
         return {
@@ -178,4 +210,5 @@ export default class AppConfig {
             on: this.on,
         };
     }
+
 }

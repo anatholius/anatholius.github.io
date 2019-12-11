@@ -19,11 +19,13 @@ export default class Invitation extends React.Component {
         return (
             <Block noHairlines>
                 <BlockHeader>
-                    <BlockTitle medium>Strona startowa</BlockTitle>
-                    <p>Welcome to Anatholius GitHub Page.</p>
-                    <p>Here is a list of projects that you can read more closely by reading the descriptions,
-                        as well as look at their codes</p>
+                    <BlockTitle medium>Welcome</BlockTitle>
+                    <p>This page is about some of my projects. You can read about the motivations to create them and
+                        delve into the codes</p>
                 </BlockHeader>
+
+                <p>GH Page itself was created with the help of Reactjs and Framework7. Therefore, it should as well
+                    look on mobile devices.</p>
 
                 <List mediaList className="media-center">
                     <ListItem chevronCenter title="Code Samples" //disabled={true}
@@ -40,15 +42,8 @@ export default class Invitation extends React.Component {
                     >
                         <Icon slot="media" icon="fad fa-project-diagram fa-2x"/>
                     </ListItem>
-                    <ListItem chevronCenter title="KPiR Project" disabled={true}
-                              subtitle="The page with projects descriptions"
-                              text="available after logging in"
-                              link="/kpir/" noLinkClass
-                    >
-                        <Icon slot="media" icon="fad fa-file-invoice-dollar fa-3x"/>
-                    </ListItem>
                     <ListItem chevronCenter title="Sandbox" //disabled={true}
-                              subtitle="The page with projects descriptions"
+                              subtitle="A page to play with components"
                               text="available without logging in"
                               link="/sandbox/" noLinkClass
                     >

@@ -83,14 +83,13 @@ export default class FormMaker {
     _prepareForm = (formName) => {
         this._prepare.form.context(formName);
         this._prepare.form.state(formName);
-        // TODO: trzeci parametr w wywołaniu new FormContext() powyżej do rozpatrzenia
+        // TODO: the third parameter in the new FormContext () call above to consider
         // 1° new:
-        // - dane - domyślne formularza - odczytywane z konfiguracji
-        // - errors - komunikaty błędów - nie będą tu inicjowane, chyba że będziemy działać na historii zdarzeń
+        // - dane - default form - read from configuration
+        // - errors - error messages - they will not be initiated here unless we operate on the event history
         // 2° edit:
-        // - data - odczytywane z resources TODO: należy uściślić gdzie będzie to resources i jaki będzie do
-        //                                        niego dostęp
-        // - errors - komunikaty błędów - nie będą tu inicjowane, chyba że będziemy działać na historii zdarzeń
+        // - data - read from TODO resources: specify where the resources will be and what access they will have
+        // - errors - error messages - they will not be initiated here unless we operate on the event history
         this._prepare.form.component();
     };
 
@@ -101,7 +100,7 @@ export default class FormMaker {
         // });
         if (this._form.context.config.form.decorator) {
 
-            //TODO: To trzeba przenieść do buildera
+            //TODO: This needs to be transferred to the builder
             // this._formComponent.addDecorator(this._formContext.config.form.decorator);
 
             this._route.config[this._form.context.config.form.decorator] = {

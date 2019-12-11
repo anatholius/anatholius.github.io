@@ -16,8 +16,8 @@ export default class CheckboxFieldWidget extends FieldWidgetPrototype {
         const formName = formConfig.item.name;
         const fieldConfig = formConfig.fields[fieldName];
         const values = this.config.state.form;
-        console.log(`this.config(${fieldName})`, this.config);
-        console.log(`props`, props);
+        // console.log(`this.config(${fieldName})`, this.config);
+        // console.log(`props`, props);
         this.settings.name = fieldConfig.name;
         this.settings.label = fieldConfig.label;
         this.settings.placeholder = fieldConfig.placeholder ? fieldConfig.placeholder : fieldConfig.label;

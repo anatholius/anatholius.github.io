@@ -6,9 +6,10 @@ import {
     Link,
     List,
     ListItem,
+    Message,
     Navbar,
     NavLeft,
-    NavRight,
+    NavRight,Messages,
     NavTitle,
     Page,
     Toolbar,
@@ -18,11 +19,8 @@ import {
 export default class ProblemResolverPage extends Component {
     displayName = this.__proto__.constructor.name;
 
-    constructor(props, context) {
-        super(props, context);
-    }
-
     render() {
+        console.log(this.displayName,this.props)
         return <Page>
             <Navbar>
                 <NavLeft>
@@ -41,11 +39,27 @@ export default class ProblemResolverPage extends Component {
                 <Link href="https://github.com/anatholius/problem-resolver" external target="_blank">See the code</Link>
                 <Link>The Right Link</Link>
             </Toolbar>
+            <Messages newMessagesFirst>
+                <Message
+                    type="sent"
+                    text="Hello World"
+                    name="John Doe"
+                    avatar="http://localhost:3000/static/icons/black/icon-72x72.png"
+                >
+                    <div slot="start">Start</div>
+                    <div slot="end">End</div>
+                    <div slot="content-start">Content Start</div>
+                    <div slot="content-end">Content End</div>
+                    <div slot="bubble-start">Bubble Start</div>
+                    <div slot="bubble-end">Bubble End</div>
+                </Message>
+
+            <blockquote>The materials were inspired by the website <Link
+                href="https://www.skillsyouneed.com/ips/problem-solving.html" external
+                target="_blank">skillsyouneed.com</Link>
+            </blockquote>
 
             <Block strong>
-                <blockquote>The materials were inspired by the website <Link
-                    link="https://www.skillsyouneed.com/ips/problem-solving.html" external>skillsyouneed.com</Link>
-                </blockquote>
                 <BlockTitle>How to solve the problem?</BlockTitle>
                 <p>To be able to think about solving a problem, you must be aware of the fundamental importance of the
                     problem.</p>
@@ -216,6 +230,7 @@ export default class ProblemResolverPage extends Component {
                     monitoring and receiving feedback from people affected by any changes. It is good practice to record
                     the results and any additional problems that arise.</p>
             </Block>
+            </Messages>
         </Page>;
     }
 }

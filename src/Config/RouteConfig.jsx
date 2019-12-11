@@ -42,7 +42,9 @@
  *
  */
 export default class RouteConfig {
+    displayName = 'RouteConfig';
     /** Route name, e.g. home */
+    id;
     name;
     /** Route path. Means this route will be loaded when we click link
      * that match to this path, or can be loaded by this path using API
@@ -96,6 +98,7 @@ export default class RouteConfig {
 
     getConfig() {
         const config = {};
+        // console.log(this.displayName, this);
         for (let key in this) {
             if (this.hasOwnProperty(key) && this[key]) {
                 config[key] = this[key];

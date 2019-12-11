@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './scss/app.scss';
 import './scss/layout.scss';
 import 'framework7/css/framework7.bundle.min.css';
+import 'highlight.js/styles/darcula.css'
 // Import F7 Bundle
 import Framework7 from 'framework7/framework7.esm.bundle';
 // Import F7-React Plugin

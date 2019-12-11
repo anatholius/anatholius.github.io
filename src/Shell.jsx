@@ -11,8 +11,8 @@ import DynamicRoutePage from "./Pages/DynamicRoutePage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import ProblemResolverPage from "./Pages/ProblemResolverPage";
 import SandboxPage from "./Pages/SandboxPage";
-import CodeSamplesPage from "./Pages/CodeSamplesPage";
 import CodeSamplesDetailPage from "./Pages/CodeSamplesDetailPage";
+import CodeSamplesPage from "./Pages/CodeSamplesPage";
 
 const resourceConfig = new ResourceConfig();
 
@@ -38,40 +38,21 @@ export default class Shell extends React.Component {
             transition: 'f7-cover-v',
             context: appConfig,
         });
-        // appConfig.addAsyncRoute('kpir', '/kpir/', {
-        //     component: KpirPage,
-        // }, {
-        //     transition: 'f7-cover-v',
-        //     context: appConfig,
-        // });
-
-        /*
-        const codeSampleRoute = appConfig.createSimpleRoute(
-            'codeSample',
-            '/code-samples/:pattern/',
-            CodeSamplesDetailPage,
-        );
-        console.log('codeSampleRoute', codeSampleRoute);
-
-        appConfig.addDetailsRoute('codeSamples', '/code-samples/', [
-            codeSampleRoute,
-        ], {
+        appConfig.addAsyncRoute('codeSamples', '/code-samples/', {
             component: CodeSamplesPage,
-            master: true,
+        }, {
             transition: 'f7-cover-v',
             context: appConfig,
-        });
-        /*/
-        appConfig.addRoute('codeSamples', '/code-samples/', CodeSamplesPage, {
-            // transition: 'f7-cover-v',
+            master: true,
+        }, {});
+        appConfig.addAsyncRoute('codeSampleDetail', '/code-samples/:genus/:pattern', {
+            component: CodeSamplesDetailPage,
             master: true,
             context: appConfig,
-        });
-        appConfig.addRoute('codeSample', '/code-samples/:pattern', CodeSamplesDetailPage, {
-            // transition: 'f7-cover-v',
+            transition: 'f7-parallax',
+        }, {
             context: appConfig,
         });
-        //*/
         appConfig.addAsyncRoute('sandbox', '/sandbox/', {
             component: SandboxPage,
         }, {
@@ -112,16 +93,14 @@ export default class Shell extends React.Component {
             component: DynamicRoutePage,
         }, {
             transition: 'f7-cover-v',
-            // context:    appConfig,
         });
-        appConfig.addAsyncRoute('notFounPage', '(.*)', {
+        appConfig.addAsyncRoute('notFoundPage', '(.*)', {
             component: NotFoundPage,
         }, {
             transition: 'f7-cover-v',
-            // context:    appConfig,
         });
         this._config = appConfig;
-        console.log('specific route', appConfig.routes[2]);
+        console.log('appConfig', appConfig);
 
         this.state = {};
         this.deferredPrompt = null;
@@ -132,7 +111,7 @@ export default class Shell extends React.Component {
     componentDidMount = () => {
         // console.log(`${this.displayName} is mounting`, this);
         this.app = this.$f7;
-        this.app.logger.log({'this._config': this._config});
+        // this.app.logger.log({'this._config': this._config.routes});
 
         window.addEventListener('beforeinstallprompt', e => {
             // Stash the event so it can be triggered later.
@@ -175,7 +154,7 @@ export default class Shell extends React.Component {
     render() {
         return (
             <App params={this._config}>
-                <View main url="/" pushState masterDetailBreakpoint={800}/>
+                <View main url="/" pushState/>
             </App>
         );
     }

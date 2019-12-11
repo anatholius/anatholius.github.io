@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Block, BlockHeader, BlockTitle, Link, Navbar, NavRight, Page, PageContent, Popup} from 'framework7-react';
+import {BlockHeader, BlockTitle, Page, PageContent} from 'framework7-react';
 import PanelLeft from "../Components/Shell/PanelLeft";
 import PanelRight from "../Components/Shell/PanelRight";
 import Invitation from "../Components/Shell/Invitation";

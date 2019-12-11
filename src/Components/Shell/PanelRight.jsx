@@ -1,5 +1,5 @@
 import React from "react";
-import {Icon, Link, List, ListGroup, ListItem, Navbar, Page, Panel, View} from "framework7-react";
+import {BlockTitle, Icon, Link, List, ListGroup, ListItem, Navbar, Page, Panel, View} from "framework7-react";
 import * as PropTypes from "prop-types";
 import Helper from "../../Plugin/Helpers/Helper";
 import CompanyConfig from "../../Patterns/Facade/FormConfig/CompanyConfig";
@@ -14,11 +14,36 @@ export default class PanelRight extends React.Component {
         app: PropTypes.object,
         widgetFactory: PropTypes.object,
     };
-
-    display = this.props.display(this.displayName);
+    display;
 
     render() {
-        this.display = this.props.display(this.displayName);
+        if (this.props.app.displayable('panelLeft')) {
+            return <Panel right cover themeLight>
+                <View>
+                    <Page>
+                        <BlockTitle>Navigacja OFF-LINE</BlockTitle>
+                        <List>
+                            <ListItem link="#" title="Jakiś link1">
+                                <Icon slot="media" icon="fad fa-sign-out"/>
+                            </ListItem>
+                            <ListItem link="#" title="Jakiś link2">
+                                <Icon slot="media" icon="fad fa-sign-out"/>
+                            </ListItem>
+                            <ListItem link="#" title="Jakiś lin2k">
+                                <Icon slot="media" icon="fad fa-sign-out"/>
+                            </ListItem>
+
+                            <ListItem divider title="Divider Here"/>
+
+                            <ListItem link="#" title="Jakiś link">
+                                <Icon slot="media" icon="fad fa-sign-out"/>
+                            </ListItem>
+                        </List>
+                    </Page>
+                </View>
+            </Panel>
+        }
+        this.display = this.props.app.displayable(this.displayName);
         // console.log('this.props', this.props);
         // eslint-disable-next-line no-unused-vars
         let companySelected = null;
@@ -48,7 +73,7 @@ export default class PanelRight extends React.Component {
                     <View>
                         <Page>
                             <Navbar title="Operations" subtitle="Useful actions or nothing">
-                                {!this.props.state.online &&
+                                {!this.props.app.online &&
                                 <Link slot="nav-right" color={this.props.app.online ? 'black' : 'red'}>
                                     <Icon icon={`fad fa-wifi${this.props.app.online ? '' : '-slash'}`}/>
                                 </Link>}

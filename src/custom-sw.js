@@ -8,4 +8,4 @@ self.addEventListener('activate', event => event.waitUntil(self.clients.claim())
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
 // app-shell
-workbox.routing.registerRoute("/", workbox.strategies.cacheFirst());
+workbox.routing.registerRoute("/", workbox.strategies.networkFirst());
