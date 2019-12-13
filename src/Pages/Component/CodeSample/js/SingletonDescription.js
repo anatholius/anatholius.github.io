@@ -4,12 +4,13 @@ import {Block} from "framework7-react";
 
 const SingletonDescription = () => (
     <Block>
-        <p>To chyba najbardziej słynny i najbardziej nielubiany wzorzec na świecie :)</p>
-        <p>Jeśli mamy prostą strukturę właściwości które chcemy wykorzystać w wielu miejscach bez powielania kodu, a
-            jednocześnie chcemy aby te właściwości przy każdym użyciu były „jedyne w swoim rodzaju” zamykamy je w
-            obiekcie wg wzorca <b>Singleton</b>. Tak bym to określił własnymi słowami :)</p>
-        <p>W swoich aplikacjach najczęściej używam go do klas wyjątków które chcę wyświetlać w ujednolicony sposób. Nie
-            w tym wielkiej filozofii, a znacznie ułatwia debugowanie aplikacji w procesie tworzenia.</p>
+        <p>This is probably the most famous and most disliked pattern in the world :)</p>
+        <p>If we have a simple structure of properties that we want to use in many places without duplicating the code,
+            and at the same time, we want these properties to be "one of a kind" each time we close them in
+            object according to the <b>Singleton</b> pattern. That's how I would describe it in my own words :)</p>
+        <p>In my applications I usually use it for exception classes that I want to display in a unified way. No
+            in this great philosophy, and greatly facilitates the debugging of applications in the development
+            process.</p>
     </Block>
 );
 export default SingletonDescription;

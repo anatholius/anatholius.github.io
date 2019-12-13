@@ -22,18 +22,25 @@ export default class CodeSamplesPage extends React.Component {
             </Toolbar>
             <View id="view-php" className="view-php" tab tabActive master masterDetailBreakpoint={800}>
                 <Page noNavbar className="page-master-detail">
-                    <p>W tej sekcji prezentuję opisy fragmentów kodów lub sposobów rozwiązania różnych problemów
-                        programistycznych podczas pracy z PHP. Podstawowym narzędziem którym używam jest Symfony 4+ oraz
-                        pochodne aplikacje przydatne do programowania zachowań serwerów w kontekście aplikacji
-                        internetowych.</p>
+                    <p>In this section I present descriptions of code fragments or ways to solve various problems
+                        programming while working with PHP. The basic tool I use is Symfony 4+ and
+                        derivative applications useful for programming server behavior in the context of applications
+                        online.</p>
                 </Page>
                 <Page noNavbar className="page-master">
+                    <Block className="visible-">
+                        In this section I present descriptions of code fragments or ways to solve various problems
+                        programming while working with PHP. The basic tool I use is Symfony 4+ and
+                        derivative applications useful for programming server behavior in the context of applications
+                        online.
+                    </Block>
                     <Block>
-                        <h2>Nawigacja</h2>
+                        <h2>Navigation</h2>
                     </Block>
                     <List>
                         <ListItem reloadDetail={true} link="/code-samples/php/firstAdminCommand/" view=".view-php">
-                            Komenda <small className="margin-left">pierwszy super admin w aplikacji Symfony</small>
+                            Command <small className="margin-left">the first super admin in the Symfony
+                            application</small>
                         </ListItem>
                         <ListItem reloadDetail={true} link="/code-samples/php/problemResolver/" view=".view-php">
                             Problem Resolver
@@ -43,19 +50,19 @@ export default class CodeSamplesPage extends React.Component {
             </View>
             <View id="view-js" className="view-js" tab masterDetailBreakpoint={800}>
                 <Page noNavbar withToolbar className="page-master-detail">
-                    <p>W tej sekcji prezentuję opisy motywacji i trochę sposobów rozwiązania poszczególnych problemów
-                        programistycznych przy pomocy wzorców projektowych w języku JavaScript. Jest to zestawienie
-                        kilku przykładowych kodów niemal żywcem wyciągniętych z żywych projektów.</p>
-                    <p>Zaglądając do źródła w repozytorium można znaleźć odniesienia do innych wzorców, których w
-                        tym przykładowym repozytorium nie umieściłem. Pokazuje to, że całościowe ujęcie
-                        danej aplikacji jest zwykle dużo bardziej złożone.</p>
-                    <p>Również w procesie programowania często używam różnego rodzaju loggerów (od console.logów do
-                        własnych klas wykonujących w tym celu bardziej złożone operacje). Mogą sie więc zdarzyć
-                        zakomentowane fragmenty z takimi odwołaniami</p>
+                    <p>In this section I present motivation descriptions and some ways to solve individual problems
+                        programming with the help of design patterns in JavaScript. This is a summary
+                        several sample codes almost alive drawn from live projects.</p>
+                    <p>By looking into the source in the repository you can find references to other patterns that in
+                        I did not put this sample repository. This shows that the overall picture
+                        the application is usually much more complex.</p>
+                    <p>Also in the programming process I often use various types of loggers (from console.logs to
+                        their own classes that perform more complex operations for this purpose). So they can happen
+                        commented excerpts with such references</p>
                 </Page>
                 <Page noNavbar className="page-master">
                     <Block>
-                        <h2>Nawigacja</h2>
+                        <h2>Navigation</h2>
                     </Block>
                     <List>
                         <ListItem reloadDetail={true} link="/code-samples/js/command/" view=".view-js">

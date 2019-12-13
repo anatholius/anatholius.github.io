@@ -7,11 +7,6 @@ export default () => (
         <Block strong>
             <p>Left panel content goes here</p>
         </Block>
-        <BlockTitle>Load page in panel</BlockTitle>
-        {/*<List>*/}
-        {/*  <ListItem link="/about/" title="About"></ListItem>*/}
-        {/*  <ListItem link="/form/" title="Form"></ListItem>*/}
-        {/*</List>*/}
         <BlockTitle>Load page in main view</BlockTitle>
         <List>
             <ListItem link="/about/" title="About" view="#main-view" panelClose/>

@@ -127,7 +127,7 @@ export default class SandboxPage extends Component {
                             />
                         </List>
                         <List>
-                            <ListButton title="Sign In" loginScreenClose></ListButton>
+                            <ListButton title="Sign In" loginScreenClose/>
                             <BlockFooter>
                                 <p>Click Sign In to close Login Screen</p>
                             </BlockFooter>

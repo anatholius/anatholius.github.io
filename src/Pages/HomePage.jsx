@@ -16,18 +16,6 @@ export default class HomePage extends React.Component {
         this.app = this.$f7;
 
         this.state = {};
-        // console.log(`${this.displayName} is constructing`);
-
-    }
-
-    componentDidMount() {
-        //     console.log(`${this.displayName} is mounting`);
-        // this.app.logger.startProcess('init IndexedDB data');
-        // this.app.api.init().then(() => {
-        //     // this.context.data = this.app.api.resource.data;
-        //     this.setState(this.state)
-        // });
-        // this.app.logger.endProcess();
     }
 
     render() {
@@ -57,7 +45,7 @@ export default class HomePage extends React.Component {
                 <PageContent>
                     <BlockHeader>
                         <BlockTitle medium>
-                            Witaj{this.app.displayable('user') ? ' ' + this.app.api.resource.data.config.user['firstName'] : ''}
+                            Hello{this.app.displayable('user') ? ' ' + this.app.api.resource.data.config.user['firstName'] : ''}
                         </BlockTitle>
                     </BlockHeader>
 

@@ -4,21 +4,20 @@ import Highlight from 'react-highlight';
 
 const PrototypeDescription = () => (
     <Block>
-        <p>Podczas tworzenia aplikacji z systemem formularzy samo tworzenie formularza z prostymi kontrolkami okazało
-            się być nie wystarczające. Dlatego wymyśliłem, aby formularz był budowany na podstawie pól w nim zawartych,
-            jednak traktujący ja jako twór abstrakcyjny, który może posiadać swoje niestandardowe podstruktury i
-            funkcjonalności. W ten sposób postanowiłem utworzyć widżety pól które odzwierciedlą i obsłużą oczekiwania
-            użytkownika w kontekście użycia formularza.</p>
-        <p>Wymyśliłem kilka rodzajów pól, które w rezultacie odpowiadają rodzajom widżetów umieszczanych docelowo w
-            komponencie formularza. Ponieważ każdy rodzaj pola może pojawić się w formularzu kilkukrotnie, lecz
-            dotyczyć innych pól formularza a zatem i danych, do zaimplementowania tego pomysłu użyłem
-            wzorca <b>Prototyp</b>.</p>
-        <p>Jak wszyscy (z pewnością większość) wie, JavaScript jest językiem opartym o ten wzorzec projektowy. W
-            zasadzie
-            każdy obiekt w JS jest prototypem. Z tego też powodu podczas tworzenia tych widgetów robiłem wiele kroków w
-            przód i w tył, aby osiągnąć efekt bez naruszania core'owych standardów języka.</p>
-        <p>Finalnie cały ten taniec z kodem okazał się sukcesem. Podczas tworzenia nowego formularza wystarczy tylko
-            napisać coś w stylu:</p>
+        <p>When creating an application with a form system, just creating a form with simple controls turned out to be
+            be not enough. That's why I thought that the form would be built based on the fields it contains,
+            however, treating it as an abstract creation that may have its own custom substructures and functionalities.
+            In this way, I decided to create field widgets that reflect and serve expectations
+            user in the context of using the form.</p>
+        <p>I came up with several types of fields, which as a result correspond to the types of widgets placed in the
+            target form component. Because any type of field may appear several times in the form, but
+            apply to other fields of the form and therefore data, I used to implement this idea
+            the <b>Prototype</b> pattern.</p>
+        <p>As everyone (certainly most) knows, JavaScript is a language based on this design pattern. In principle,
+            every object in JS is a prototype. For this reason, when creating these widgets, I took many steps back and
+            forth to achieve the effect without violating core language standards.</p>
+        <p>Ultimately, all this dance with the code was a success. When creating a new form, all you have to do is write
+            something like:</p>
         <Highlight language="javascript">{`<form>
     <FieldWidget fieldName={someFieldName} data={{some: 'JSON data'}}/>
     <CollectionWidget fieldName={collectionFieldName} data={{some: 'JSON data'}}/>

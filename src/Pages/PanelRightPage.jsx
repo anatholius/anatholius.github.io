@@ -9,13 +9,13 @@ export default () => (
     </Block>
     <BlockTitle>Load page in panel</BlockTitle>
     <List>
-      <ListItem link="/about/" title="About"></ListItem>
-      <ListItem link="/form/" title="Form"></ListItem>
+      <ListItem link="/about/" title="About"/>
+      <ListItem link="/form/" title="Form"/>
     </List>
     <BlockTitle>Load page in main view</BlockTitle>
     <List>
-      <ListItem link="/about/" title="About" view="#main-view" panelClose></ListItem>
-      <ListItem link="/form/" title="Form" view="#main-view" panelClose></ListItem>
+      <ListItem link="/about/" title="About" view="#main-view" panelClose/>
+      <ListItem link="/form/" title="Form" view="#main-view" panelClose/>
     </List>
   </Page>
 );
