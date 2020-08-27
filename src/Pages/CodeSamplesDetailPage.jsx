@@ -8,7 +8,7 @@ import SingletonDescription from "./Component/CodeSample/js/SingletonDescription
 import StrategyDescription from "./Component/CodeSample/js/StrategyDescription";
 import FirstAdminCommandDescription from "./Component/CodeSample/php/FirstAdminCommandDescription";
 import ProblemResolverDescription from "./Component/CodeSample/php/ProblemResolverDescription";
-import ShopwareSamplesDescription from "./Component/CodeSample/php/ShopwareSamplesDescription";
+import ShopwareSampleDescription from "./Component/CodeSample/php/ShopwareSampleDescription";
 
 const components = {
     js: {
@@ -42,9 +42,9 @@ const components = {
             link: 'https://github.com/anatholius/problem-resolver',
             desc: ProblemResolverDescription,
         },
-        shopwareSamples: {
+        shopwareSample: {
             link: 'https://github.com/anatholius/sample-codes/tree/master/php/SomePlugin',
-            desc: ShopwareSamplesDescription,
+            desc: ShopwareSampleDescription,
         },
     },
 };

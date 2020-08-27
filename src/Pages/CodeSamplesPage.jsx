@@ -47,7 +47,7 @@ export default class CodeSamplesPage extends React.Component {
                         <ListItem reloadDetail={true} link="/code-samples/php/problemResolver/" view=".view-php">
                             Problem Resolver
                         </ListItem>
-                        <ListItem reloadDetail={true} href="/code-samples/php/shopwareSamples/" view=".view-php">
+                        <ListItem reloadDetail={true} href="/code-samples/php/shopwareSample/" view=".view-php">
                             Shopware
                             <small className="margin-left">
                                 code examples in the Shopware application

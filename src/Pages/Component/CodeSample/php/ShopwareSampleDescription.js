@@ -2,7 +2,7 @@ import React from "react";
 import {Block} from "framework7-react";
 
 
-const ShopwareSamplesDescription = () => (
+const ShopwareSampleDescription = () => (
     <Block>
         <p>
             Recently, I have spent a lot of time working with the Shopware 6 application. It is an e-commerce
@@ -65,6 +65,20 @@ const ShopwareSamplesDescription = () => (
             lifecycle functions and the plug-in lifecycle functions to allow the developer (or the plug-in uninstalling
             function) to withdraw the migration of this plugin only.
         </p>
+        <h4>Conclusions</h4>
+        <p>
+            This small service class can give you the ability to use any stage of the plug-in lifecycle and perform
+            any function you define in the migration class.
+        </p>
+        <p>
+            This will be done independently of any other migrations on the system, and without compromising data
+            from other migrations.
+        </p>
+        <p>
+            All you need to do is write the appropriate migration functions (usually MySQL queries), but you can
+            also use the repository system from Shopware. Just use in the migration function the third parameter to
+            include container to get to the autowirable classes.
+        </p>
     </Block>
 );
-export default ShopwareSamplesDescription;
+export default ShopwareSampleDescription;
