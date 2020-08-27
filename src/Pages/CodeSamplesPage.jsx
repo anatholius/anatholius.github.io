@@ -39,11 +39,19 @@ export default class CodeSamplesPage extends React.Component {
                     </Block>
                     <List>
                         <ListItem reloadDetail={true} link="/code-samples/php/firstAdminCommand/" view=".view-php">
-                            Command <small className="margin-left">the first super admin in the Symfony
-                            application</small>
+                            Command
+                            <small className="margin-left">
+                                the first super admin in the Symfony application
+                            </small>
                         </ListItem>
                         <ListItem reloadDetail={true} link="/code-samples/php/problemResolver/" view=".view-php">
                             Problem Resolver
+                        </ListItem>
+                        <ListItem reloadDetail={true} href="/code-samples/php/shopwareSamples/" view=".view-php">
+                            Shopware
+                            <small className="margin-left">
+                                code examples in the Shopware application
+                            </small>
                         </ListItem>
                     </List>
                 </Page>
