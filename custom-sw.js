@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.c3d3cccb9e12f9620f9d463850818478.js", "/workbox-v4.3.1/workbox-sw.js");
+importScripts("/precache-manifest.eff191d1b90863585f0a1e4620ae5fb0.js", "/workbox-v4.3.1/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "/workbox-v4.3.1"});
 // See https://developers.google.com/web/tools/workbox/guides/configure-workbox
 // workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug);
